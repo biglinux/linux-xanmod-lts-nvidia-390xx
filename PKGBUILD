@@ -1,7 +1,8 @@
-# Maintainer: Bernhard Landauer <bernhard@manjaro.org>
+# Maintainer: Bernhard Landauer <bernhard[at]manjaro[dot]org>
 # Maintainer: Philip Müller <philm[at]manjaro[dot]org>
+# Contributor: Gerd Röthig (DAC24)
 
-# Arch credits:
+# Archlinux credits:
 # Maintainer : Thomas Baechler <thomas@archlinux.org>
 # Contributor: Alonso Rodriguez <alonsorodi20 (at) gmail (dot) com>
 # Contributor: Sven-Hendrik Haase <sh@lutzhaase.com>
@@ -11,12 +12,12 @@
 # Contributor: Ike Devolder <ike.devolder+gmail+com>
 
 _linuxprefix=linux-xanmod-lts
-_extramodules=$(find /usr/lib/modules -type d -iname 5.15.95*xanmod* | rev | cut -d "/" -f1 | rev)
+_extramodules=$(find /usr/lib/modules -type d -iname 6.1.15*xanmod* | rev | cut -d "/" -f1 | rev)
 
 pkgname=$_linuxprefix-nvidia-390xx
 pkgdesc="NVIDIA drivers for linux"
 pkgver=390.157
-pkgrel=515951
+pkgrel=61151
 arch=('x86_64')
 url="http://www.nvidia.com/"
 license=('custom')
@@ -40,7 +41,7 @@ prepare() {
 }
 
 build() {
-    _kernver=$(find /usr/lib/modules -type d -iname 5.15.95*xanmod* | rev | cut -d "/" -f1 | rev)
+    _kernver=$(find /usr/lib/modules -type d -iname 6.1.15*xanmod* | rev | cut -d "/" -f1 | rev)
 
     cd "${_pkg}"
     make -C kernel SYSSRC=/usr/lib/modules/"${_kernver}/build" module
