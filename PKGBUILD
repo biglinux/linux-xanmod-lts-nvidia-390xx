@@ -12,7 +12,7 @@
 # Contributor: Ike Devolder <ike.devolder+gmail+com>
 
 _linuxprefix=linux-xanmod-lts
-_kernver="$(cat /usr/src/${_linuxprefix}//build/version)"
+_kernver=$(find /usr/lib/modules -type d -iname 6.1.76*xanmod* | rev | cut -d "/" -f1 | rev)
 
 pkgname=$_linuxprefix-nvidia-390xx
 pkgdesc="NVIDIA drivers for linux"
